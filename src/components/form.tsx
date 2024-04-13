@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import  { useState, } from 'react';
 import { Link } from 'react-router-dom';
 
 // Define an interface for the product details
