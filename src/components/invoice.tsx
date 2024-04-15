@@ -4,10 +4,10 @@ const Invoice = () => {
   return (
     <>
       {/* Header Navbar */}
-      <header className="bg-teal-900 p-4 flex justify-between items-center">
+      <header className="bg-[#0D6064] p-4 flex justify-between items-center">
         <Link to='/'>
-        <div className="text-white font-bold text-xl">
-			<img src="/brand.PNG"/>
+        <div className="text-white font-bold text-xl w-[200px]">
+			<img src="/logo.png"/>
 		</div>
         </Link>
         {/* You can add more elements or links to the right side if needed */}
@@ -37,9 +37,9 @@ const Invoice = () => {
          
         </div>
       {/* Table Section */}
-      <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
-      <div className="overflow-x-auto">
-        <table className="w-full border">
+      <section className=" dark:bg-gray-100 dark:text-gray-900">
+      <div className="overflow-x-auto  ">
+        <table className="w-full  h-[500px] ">
           <thead>
             <tr className="bg-black text-white dark:bg-black">
               <th className="border px-4 py-2">No.</th>
@@ -51,20 +51,14 @@ const Invoice = () => {
           </thead>
           <tbody className="" >
             {/* Sample rows (replace with dynamic data) */}
-            <tr className="border">
-              <td className="px-4 py-2">1</td>
-              <td className="px-4 py-2">Product A - Description</td>
-              <td className="px-4 py-2">2</td>
-              <td className="px-4 py-2">$50.00</td>
-              <td className="px-4 py-2">$100.00</td>
+            <tr className="border mt-2">
+              <td className="border px-4 py-2 ">1</td>
+              <td className="border px-4 py-2">Product A - Description</td>
+              <td className="border px-4 py-2">2</td>
+              <td className="border px-4 py-2">$50.00</td>
+              <td className="border px-4 py-2">$100.00</td>
             </tr>
-            <tr className="border">
-              <td className="px-4 py-2">2</td>
-              <td className="px-4 py-2">Product B - Description</td>
-              <td className="px-4 py-2">1</td>
-              <td className="px-4 py-2">$80.00</td>
-              <td className="px-4 py-2">$80.00</td>
-            </tr>
+           
             {/* Add more rows as needed */}
           </tbody>
           {/* Total Row */}
@@ -80,7 +74,8 @@ const Invoice = () => {
     <br/>
     <br/>
     <br/>
-    <div className="flex flex-row justify-between p-6 px-20 dark:text-gray-900 ">
+   
+    <div className="flex flex-row  justify-between p-6 px-20 dark:text-gray-900 ">
       <div>
         <div className=''>
           <h3 className="font-medium text-teal-900 text-2xl">Taxpayer Identification Number </h3>

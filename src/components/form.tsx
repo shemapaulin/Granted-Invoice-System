@@ -32,8 +32,8 @@ const Form = () => {
   return (
    <>
    <header className="bg-teal-900 p-4 flex justify-between items-center">
-        <div className="text-white font-bold text-xl">
-			<img src="/brand.PNG"/>
+        <div className="text-white font-bold text-xl w-[200px]">
+			<img src="/logo.png"/>
 		</div>
         {/* You can add more elements or links to the right side if needed */}
         <div className="flex flex-col">
@@ -47,13 +47,13 @@ const Form = () => {
 	  <h1 className="text-3xl font-bold text-center text-teal-900 pt-10">INVOICE FORM</h1>
    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
 	<form  action="" className="container  flex flex-col mx-auto space-y-12">
-	<fieldset className="grid grid-cols-4 dark:bg-gray-400 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
+	<fieldset className="grid grid-cols-4 dark:bg-gray-400 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-400">
 			<div className="space-y-4 col-span-full lg:col-span-1">
 				<p className="font-medium">Customer Details</p>
 				<br/>
 				<p className="font-medium">Invoice Details</p>
 			</div>
-			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 ">
             <div className="col-span-full sm:col-span-2">
 					<label htmlFor="city" className="text-sm">Name</label>
 					<input id="state" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 font-medium dark:text-teal-900 focus:dark:ring-violet-600 dark:border-gray-300" />
@@ -142,7 +142,7 @@ const Form = () => {
             >
               Add Row
             </button>
-			<Link to="/invoice">
+			<Link to="/newInvoice">
 			<button
               type="button"
               className="bg-teal-900 text-white px-4 py-2 rounded-md mt-4"
