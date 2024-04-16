@@ -47,7 +47,7 @@ const Form = () => {
 	  <h1 className="text-3xl font-bold text-center text-teal-900 pt-10">INVOICE FORM</h1>
    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
 	<form  action="" className="container  flex flex-col mx-auto space-y-12">
-	<fieldset className="grid grid-cols-4 dark:bg-gray-400 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-400">
+	<fieldset className="grid grid-cols-4 dark:bg-gray-400 gap-6 p-6 rounded-md shadow-sm bg-gray-400 dark:bg-gray-400">
 			<div className="space-y-4 col-span-full lg:col-span-1">
 				<p className="font-medium">Customer Details</p>
 				<br/>
