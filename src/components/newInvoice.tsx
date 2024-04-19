@@ -1,6 +1,19 @@
 
-import { Link } from 'react-router-dom';
-const newInvoice = () => {
+import { Link, useLocation } from 'react-router-dom';
+const newInvoice = () => {  const location = useLocation();
+  const name = location.state.name;
+  const No = location.state.No;
+  const date = location.state.date;
+  const prod = Array.isArray(location.state.prod) ? location.state.prod : [];
+  const qty = location.state.qty;
+  const price = location.state.price;
+ const am=price*qty
+  // Calculate total amount by iterating over products
+  const totalAmount = prod.reduce((acc: number, product: any, index: string | number) => {
+    const amount = price[index] * qty[index];
+    return acc + amount;
+  }, 0);
+ console.log(location.state.name);
   return (
     <>
     
@@ -28,12 +41,12 @@ const newInvoice = () => {
       <div className="flex flex-row justify-between p-6 px-20 dark:text-gray-900 ">
       <div>
           <h3 className="font-medium text-gray-900 text-2xl">Quotation </h3>
-          <p className="">VSO</p>
+          <p className="">{name}</p>
       </div>
         <div>
           <h3 className="font-medium text-gray-900 text-2xl">Quotation No</h3>
-          <p className="">2024/074</p>
-          <p className=''> Date February 22, 2024</p>
+          <p className="">{No}</p>
+          <p className=''>{date}</p>
           </div>
          
         </div>
@@ -54,17 +67,17 @@ const newInvoice = () => {
           <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
             <div className="col-span-full sm:col-span-2">
              
-              <p className="font-medium text-black dark:text-black">Design UX and UI</p>
+              <p className="font-medium text-black dark:text-black">{location.state.prod}</p>
             </div>
             <div>
              
-              <p className="text-black dark:text-black">1</p>
+              <p className="text-black dark:text-black">{qty}</p>
             </div>
             <div>
-              <p className="text-black dark:text-black">6</p>
+              <p className="text-black dark:text-black">{price}</p>
             </div>
             <div>
-              <p className="sm:text-end text-black dark:text-black">$500</p>
+              <p className="sm:text-end text-black dark:text-black">{am}</p>
             </div>
           </div>
 
@@ -81,7 +94,7 @@ const newInvoice = () => {
 
             <dl className="grid sm:grid-cols-5 gap-x-3">
               <dt className="col-span-3 font-semibold text-black dark:text-black">Total:</dt>
-              <dd className="col-span-2 text-black">$2750.00</dd>
+              <dd className="col-span-2 text-black">{totalAmount}</dd>
             </dl>
 
           </div>
