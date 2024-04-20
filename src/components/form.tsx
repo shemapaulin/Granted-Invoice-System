@@ -33,10 +33,8 @@ const Form = () => {
       state: {
         name,
         No,
-        prod,
         date,
-        qty,
-        price
+        products: productDetails, // Pass all product details
       }
     });
 
