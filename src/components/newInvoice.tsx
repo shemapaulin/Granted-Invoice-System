@@ -1,5 +1,5 @@
 
-import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useRef } from 'react';
+import {  useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ReactToPrint from 'react-to-print';
 
@@ -15,19 +15,8 @@ const newInvoice = () => {   const location = useLocation();
   return (
     
     <>
-    <ReactToPrint
-    trigger={()=>{
-
-      return <a className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
-      Print
-    </a>
-    }}
-
-  content={()=>componentRef.current}
-
-    />
-<div id="File" className="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto my-4 sm:my-10 bg-gray-900" >
+    
+<div id="File" className="w-full h-full  bg-gray-900 dark:bg-gray-900" >
   <div className="sm:w-11/12 lg:w-3/4 mx-auto">
    
     <div className="flex flex-col p-4 sm:p-10 bg-white shadow-md rounded-xl dark:bg-gray-100" ref={componentRef}>
@@ -72,24 +61,25 @@ const newInvoice = () => {   const location = useLocation();
             <div className="text-end text-xs font-medium text-black uppercase">Amount</div>
           </div>
 
-          <div className="hidden sm:block border-b border-gray-200 dark:border-gray-700"></div>
-          {/** Loop through products */}
-          {products.map((product: { product: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; quantity: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined; }, index: Key | null | undefined) => (
-                  <div key={index} className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                    <div className="col-span-full sm:col-span-2">
-                      <p className="font-medium text-black dark:text-black">{product.product}</p>
-                    </div>
-                    <div>
-                      <p className="text-black dark:text-black">{product.quantity}</p>
-                    </div>
-                    <div>
-                      <p className="text-black dark:text-black">{product.price}</p>
-                    </div>
-                    <div>
-                      <p className="sm:text-end text-black dark:text-black"></p>
-                    </div>
-                  </div>
-                ))}
+          {products.map((product: { product?: string; quantity?: string; price?: string; }, index: number) => (
+  <div key={index} className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+    <div className="col-span-full sm:col-span-2">
+      <p className="font-medium text-black dark:text-black">{product.product}</p>
+    </div>
+    <div>
+      <p className="text-black dark:text-black">{product.quantity}</p>
+    </div>
+    <div>
+      <p className="text-black dark:text-black">{product.price}</p>
+    </div>
+    <div>
+      {product.quantity && product.price && (
+        <p className="sm:text-end text-black dark:text-black">{parseInt(product.price) * parseInt(product.quantity)}</p>
+      )}
+    </div>
+  </div>
+))}
+
 
           
 
@@ -141,14 +131,19 @@ const newInvoice = () => {   const location = useLocation();
 <h1 className='font-medium text-white text-2xl'>Graphics design - Printing services - Branding - General supply</h1>
    </footer>
     </div>
-    
-    <div className="mt-6 flex justify-end gap-x-3">
-      <a download='newInvoice' className="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-lg border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" href="#">
-      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-        Invoice PDF
-      </a>
-     
-    </div>
+    <br/>
+    <ReactToPrint
+    trigger={()=>{
+
+      return <a className="py-2 px-3 inline-flex items-left gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
+      <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+      Print
+    </a>
+    }}
+
+  content={()=>componentRef.current}
+
+    />
    
   </div>
 </div>
