@@ -64,7 +64,7 @@ const Form = () => {
   };
   return (
     <>
-      <header className="bg-teal-900  p-4 flex justify-between items-center">
+      <header className="bg-[#0D6064] dark:bg-[#0D6064]  p-4 flex justify-between items-center">
         <div className="text-white font-bold text-xl w-[200px]">
           <img src="/logo.png" />
         </div>
@@ -239,7 +239,7 @@ const Form = () => {
           <div className="flex space-x-4 justify-end">
             <button
               type="button"
-              className="bg-teal-900 text-white px-4 py-2 rounded-md mt-4"
+              className="bg-[#0D6064] dark:bg-[#0D6064] text-white px-4 py-2 rounded-md mt-4"
               onClick={addRow}
             >
               Add Row
@@ -248,7 +248,7 @@ const Form = () => {
             {/* <Link to="/newInvoice"> */}
             <button
               type="submit"
-              className="bg-teal-900 text-white px-4 py-2 rounded-md mt-4"
+              className="bg-[#0D6064] dark:bg-[#0D6064] text-white px-4 py-2 rounded-md mt-4"
               // onClick={() => handleSubmit}
             >
               save
