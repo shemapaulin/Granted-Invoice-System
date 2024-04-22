@@ -20,10 +20,8 @@ const Form = () => {
 
   const name = nameRef.current?.value || '';
   const No = NoRef.current?.value || '';
-  const prod = prodRef.current?.value || '';
   const date = dateRef.current?.value || '';
-  const qty = qtyRef.current?.value || '';
-  const price = priceRef.current?.value || '';
+
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
