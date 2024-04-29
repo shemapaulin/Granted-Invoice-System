@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+    font-family: 'Baloo';
+    src: url('/Baloo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  body {
+    font-family: 'Baloo',  sans-serif ;
+  }
+  

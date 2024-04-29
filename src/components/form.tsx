@@ -14,6 +14,7 @@ const Form = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const NoRef = useRef<HTMLInputElement>(null);
   const prodRef = useRef<HTMLInputElement>(null);
+  const  descRef = useRef<HTMLTextAreaElement>(null)
   const dateRef = useRef<HTMLInputElement>(null);
   const qtyRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
@@ -224,6 +225,7 @@ const Form = () => {
                 </label>
                 <textarea
                   id={`description-${index}`}
+                  ref={descRef}
                   placeholder=""
                   className="w-[50%] ml-5 rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 font-medium dark:text-teal-900"
                   value={detail.description}
